@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    text-align: center;
 }
 
 .container {
@@ -15,4 +16,8 @@
 
 .box {
     border: 1px solid black;
+}
+
+.reset-btn {
+    text-align: center;
 }
