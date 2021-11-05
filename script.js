@@ -7,22 +7,6 @@ createGrid();
 
 resetBtn.addEventListener('click', resetGrid);
 
-function resetGrid(){
-    let newSize = prompt('Enter new gridsize (max 100):');
-
-    if(newSize){
-        if(newSize < 1 || newSize > 100){
-            alert('Value must be between 1 and 100');
-        } else {
-            let oldGrid = document.querySelector('.container');
-            console.log(oldGrid);
-            oldGrid.remove();
-            createGrid(newSize);
-        }
-    }
-
-}
-
 function createGrid(gridSize=DEFAULT_GRID_SIZE){
     const boxSize = WIDTH/gridSize;
 
@@ -54,8 +38,39 @@ function createGrid(gridSize=DEFAULT_GRID_SIZE){
     });
 }
 
-function changeColor(event){
-    console.log("worked");
-    this.style.backgroundColor = 'black';
-    this.removeEventListener('mouseover', changeColor);
+function resetGrid(){
+    let newSize = prompt('Enter new gridsize (max 100):');
+
+    if(newSize){
+        if(newSize < 1 || newSize > 100){
+            alert('Value must be between 1 and 100');
+        } else {
+            let oldGrid = document.querySelector('.container');
+            console.log(oldGrid);
+            oldGrid.remove();
+            createGrid(newSize);
+        }
+    }
 }
+
+
+function changeColor(event){
+    let rgb = [];
+    for(let i = 0; i<3; ++i){
+        rgb[i] = Math.ceil((Math.random()*256));
+    }
+    this.style.backgroundColor = `rgb(${rgb[0]} ${rgb[1]} ${rgb[2]})`;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
