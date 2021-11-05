@@ -55,11 +55,19 @@ function resetGrid(){
 
 
 function changeColor(event){
-    let rgb = [];
-    for(let i = 0; i<3; ++i){
-        rgb[i] = Math.ceil((Math.random()*256));
+    const DIM_AMOUNT = 255/10;
+    let currentColor = this.style.backgroundColor;
+
+    if(!currentColor){
+        let value = 255-DIM_AMOUNT;
+        this.style.backgroundColor = `rgb(${value} ${value} ${value})`;
+    } else {
+        rgb = currentColor.slice(4, -1).split(', ');
+        rgb = rgb.map(c => c-DIM_AMOUNT);
+        console.log(rgb);
+        
+        this.style.backgroundColor = `rgb(${rgb[0]} ${rgb[1]} ${rgb[2]})`;
     }
-    this.style.backgroundColor = `rgb(${rgb[0]} ${rgb[1]} ${rgb[2]})`;
 }
 
 
